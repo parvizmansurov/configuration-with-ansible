@@ -1,6 +1,6 @@
 ---
 - name: Wordpress
-  hosts: 172.31.1.112
+  hosts: all
   become: yes
   become_method: sudo
   gather_facts: no
