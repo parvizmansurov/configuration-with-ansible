@@ -13,6 +13,6 @@
         name: 
           - telnet
           - elinks
-          - wget 
+          - wget
           - unzip
         state: present

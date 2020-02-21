@@ -50,3 +50,22 @@
         enabled: yes
       become: yes
       become_method: sudo
+    
+    - hosts: "localhost"
+      connection: "local"
+      vars:
+        users:
+        - bob
+        - ben
+        - lisa
+        - katty
+      tasks:
+      - name: "Create user accounts"
+        user:
+          name: "{{ item }}"
+      with_items: "{{ users }}"
+    - name: "Add authorized keys"
+      uthorized_key:
+        user: "{{ item }}"
+        key: "{{ lookup('file', 'files/'+ item + '.key.pub') }}"
+      with_items: "{{ users }}"
