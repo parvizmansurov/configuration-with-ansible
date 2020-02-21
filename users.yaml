@@ -1,0 +1,24 @@
+---
+- name: add multiple users
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Add multiple users
+      user:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - bob 
+        - lisa 
+        - ben 
+        - katty 
+
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+    user: "{{ ansible_user }}"
+  tasks:
+    - authorized_key: path=./auth_keys key="{{ key }}" user="{{ bob }}"
