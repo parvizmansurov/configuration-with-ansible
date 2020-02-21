@@ -1,5 +1,9 @@
 ---
 - name: add several users
+  hosts: all
+  become: true
+  become_method: sudo
+  ignore_errors: true
   user:
     name: "{{ item }}"
     state: present
