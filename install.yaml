@@ -15,5 +15,4 @@
           -elinks
           -wget
           -unzip
-
         state: present
