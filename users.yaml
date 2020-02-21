@@ -1,25 +1,11 @@
---- 
-- name: add uswer with ssh key
-  hosts: all
-  become: yes
-  become_user: root
-  tasks:
-    - name: add 1 user
-      user: 
-        name: "{{item}}"
-        generate_ssh_key: true
-        state: present
-      with_items:
-        - "{{user1}"
-        - "{{user2}"
-    - name: create authorized_key file
-      file:
-        path: "/home/{{user}}/.ssh/authorized_keys"
-        mode: 0600
-        state: touch
-        owner: "{{user}}"
-
-    - name: add public key
-      lineinfile:
-        path: "/home/{{user}]/.ssh/authorized_keys"
-        line: "{{line}}"
+---
+- name: add several users
+  user:
+    name: "{{ item }}"
+    state: present
+    groups: "wheel"
+  loop:
+     - ben
+     - lisa
+     - katty
+     - bob
