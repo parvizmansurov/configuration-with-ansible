@@ -11,8 +11,8 @@
     - name: Install telnet
       package: 
         name: 
-          -telnet
-          -elinks
-          -wget
-          -unzip
+          - telnet
+          - elinks
+          - wget 
+          - unzip
         state: present
