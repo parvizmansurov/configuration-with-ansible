@@ -1,23 +1,22 @@
 ---
-- name: add multiple users
+- name: Adds user with ssh key
   hosts: all
   become: yes
-  become_method: sudo
+  become_user: root
   tasks:
-    - name: Add multiple users
+    - name: Add 1 user
       user:
-        name: "{{item}}"
+        name: "{{bob}}"
+        generate_ssh_key: true
         state: present
-      with_items:
-        - bob 
-        - lisa 
-        - ben 
-        - katty 
-        
-- hosts: localhost
-  gather_facts: no
-  vars:
-    key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-    user: "{{ ansible_user }}"
-  tasks:
-    - authorized_key: path=./auth_keys key="{{ key }}" user="{{ bob }}"
+    - name: Create authorized_key file
+      file:
+        path: "/home/{{bob}}/.ssh/authorized_keys"
+        mode: 0600
+        state: touch
+        owner: "{{bob}}"
+
+    - name:  add public key
+      lineinfile:
+        path: "/home/{{bob}}/.ssh/authorized_keys"
+        line: "{{line}}"
