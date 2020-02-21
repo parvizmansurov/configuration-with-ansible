@@ -9,7 +9,7 @@
     - name: install Wordpress
       package: 
         name: "{{item}}"
-        state: present
+        state: latest
         - wget
         - unzip
         - php-gd
