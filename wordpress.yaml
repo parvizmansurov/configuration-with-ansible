@@ -6,11 +6,11 @@
   gather_facts: no
   connection: ssh
   tasks:
-    - name: Install Packages
-      package:
-        name: "{{item}}"
-        state: latest
-      with_items:
+    - name: Task Name Here
+      ping:
+    - name: Install telnet
+      package: 
+        name: 
         - wget
         - unzip
         - php-gd
@@ -20,6 +20,7 @@
         - php
         - php-mysql
         - php-fpm
+      state: present
       ignore_errors: true
 
     - name: Download Wordpress package
