@@ -22,6 +22,7 @@
       shell: "sudo yum-config-manager --enable remi-php72"
     - name : update httpd PHP 
       shell: "sudo yum install httpd php php-common php-opcache php-mcrypt php-cli php-gd php-curl php-mysql mysql -y" 
+      ignore_errors: true
 
 
     - name: Download wordpress Package
