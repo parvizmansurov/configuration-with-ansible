@@ -54,16 +54,31 @@
     - name: Create 1 user bob
       user:
         name: bob
+        state: present
         generate_ssh_key: yes
+      become: yes
+      become_method: sudo
+
     - name: Create 1 user lisa
       user:
         name: lisa
+        state: present
         generate_ssh_key: yes
+      become: yes
+      become_method: sudo
+
     - name: Create 1 user ben
       user:
         name: ben
+        state: present
         generate_ssh_key: yes
+      become: yes
+      become_method: sudo
+
     - name: Create 1 user kattie
       user:
-        name: jsmith
+        name: katty
+        state: present
         generate_ssh_key: yes
+      become: yes
+      become_method: sudo
