@@ -6,17 +6,18 @@
   gather_facts: no
   connection: ssh
   tasks:
-    - name: install Wordpress
+    - name: Install necessary packages
       package: 
         name: "{{item}}"
         state: latest
+      with_items:
         - wget
         - unzip
         - php-gd
         - httpd
         - mysql
         - mariadb-server
-        - php
+        - php 
         - php-mysql
         - php-fpm
       ignore_errors: true
