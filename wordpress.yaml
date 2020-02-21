@@ -24,12 +24,12 @@
 
     - name: Download Wordpress package
       get_url:
-        url: "https://wordpress.org/latest.tar.gz"
+        url: "https://wordpress.org/latest.zip"
         dest: /tmp/
 
     - name: unzip Wordpress file
       unarchive:
-        src: "/tmp/wordpress-5.3.2.tar.gz"
+        src: "/tmp/wordpress-5.3.2.zip"
         dest: /var/www/html/
         remote_src: yes
       become: yes
