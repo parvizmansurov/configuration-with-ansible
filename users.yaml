@@ -13,8 +13,7 @@
         - lisa 
         - ben 
         - katty 
-
----
+        
 - hosts: localhost
   gather_facts: no
   vars:
