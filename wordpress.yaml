@@ -10,17 +10,17 @@
       package:
         name: "{{item}}"
         state: latest
-    with_items:
-      - wget
-      - unzip
-      - php-gd
-      - httpd
-      - mysql
-      - mariadb-server
-      - php
-      - php-mysql
-      - php-fpm
-    ignore_errors: true
+      with_items:
+        - wget
+        - unzip
+        - php-gd
+        - httpd
+        - mysql
+        - mariadb-server
+        - php
+        - php-mysql
+        - php-fpm
+      ignore_errors: true
 
     - name: Download Wordpress package
       get_url:
