@@ -1,6 +1,6 @@
 ---
 - name: add several users
-  hosts: all
+  hosts: localhost
   become: true
   become_method: sudo
   ignore_errors: true

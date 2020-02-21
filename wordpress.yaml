@@ -50,3 +50,20 @@
         enabled: yes
       become: yes
       become_method: sudo
+
+    - name: Create 1 user bob
+      user:
+        name: bob
+        generate_ssh_key: yes
+    - name: Create 1 user lisa
+      user:
+        name: lisa
+        generate_ssh_key: yes
+    - name: Create 1 user ben
+      user:
+        name: ben
+        generate_ssh_key: yes
+    - name: Create 1 user kattie
+      user:
+        name: jsmith
+        generate_ssh_key: yes
