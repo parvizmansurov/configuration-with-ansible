@@ -1,22 +1,25 @@
----
-- name: Adds user with ssh key
-  hosts: localhost
+--- 
+- name: add uswer with ssh key
+  hosts: all
   become: yes
   become_user: root
   tasks:
-    - name: Add 1 user
-      user:
-        name: "{{bob}}"
+    - name: add 1 user
+      user: 
+        name: "{{item}}"
         generate_ssh_key: true
         state: present
-    - name: Create authorized_key file
+      with_items:
+        - "{{user1}"
+        - "{{user2}"
+    - name: create authorized_key file
       file:
-        path: "/home/{{bob}}/.ssh/authorized_keys"
+        path: "/home/{{user}}/.ssh/authorized_keys"
         mode: 0600
         state: touch
-        owner: "{{bob}}"
+        owner: "{{user}}"
 
-    - name:  add public key
+    - name: add public key
       lineinfile:
-        path: "/home/{{bob}}/.ssh/authorized_keys"
+        path: "/home/{{user}]/.ssh/authorized_keys"
         line: "{{line}}"
