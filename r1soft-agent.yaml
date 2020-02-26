@@ -13,8 +13,7 @@
       package:
         name: serverbackup-enterprise-agent
         state: present
-      notify: R1SOFT_INSTALLED_ON_CENTOS_7
-
+        
     - name: Power off iptables
       systemd:
         name: firewalld
