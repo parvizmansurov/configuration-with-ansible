@@ -1,0 +1,8 @@
+---
+- name: 
+  hosts: all
+  become: true
+  become_method: sudo
+  connection: ssh
+  ignore_errors: false
+  tasks:
