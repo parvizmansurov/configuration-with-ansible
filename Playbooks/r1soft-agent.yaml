@@ -22,7 +22,7 @@
       ignore_errors: true
 
     - name: Get key
-      shell: "r1soft-setup --get-key http://3.87.214.180/"
+      shell: "r1soft-setup --get-key http://18.204.152.10/"
 
     - name: R1soft RESTART
       systemd:
