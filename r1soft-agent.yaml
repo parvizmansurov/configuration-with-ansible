@@ -13,6 +13,7 @@
       package:
         name: serverbackup-enterprise-agent
         state: present
+      notify: R1soft RESTART
 
     - name: Power off iptables
       systemd:
@@ -23,7 +24,7 @@
     - name: Get key
       shell: "r1soft-setup --get-key http://3.87.214.180/"
 
-    - name: Start R1soft agent
+    - name: R1soft RESTART
       systemd:
         name: sbm-agent
         state: restarted
