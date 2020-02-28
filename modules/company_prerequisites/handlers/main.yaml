@@ -5,4 +5,4 @@
     enabled: yes
 
 - name: GET KEY
-  shell: "r1soft-setup --get-key http://18.204.152.10/"
+  shell: "r1soft-setup --get-key {{BACKUP_SERVER}}"
